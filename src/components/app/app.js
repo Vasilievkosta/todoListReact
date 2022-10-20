@@ -4,6 +4,7 @@ import SearchPanel from '../search-panel';
 import ItemStatusFilter from '../item-status-filter';
 import TodoList from '../todo-list';
 import ItemAddForm from '../item-add-form';
+import './app.css';
 
 export default class App extends Component {
     maxId = 100;
@@ -134,14 +135,15 @@ export default class App extends Component {
                     <ItemStatusFilter filter={filter}
                         onFilterChange={this.onFilterChange} />
                 </div>
-
+				
+				<ItemAddForm addOnItem={this.addItem} />
+				
                 <TodoList todos={visibleItems}
                     onDeleted={this.deleteItem}
                     onToggleImportant={this.onToggleImportant}
                     onToggleDone={this.onToggleDone}
-
                 />
-                <ItemAddForm addOnItem={this.addItem} />
+                
             </div>
         );
     };
